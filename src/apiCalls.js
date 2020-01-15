@@ -18,24 +18,23 @@ export const startConversation = async feeling => {
 }
 
 export const postMessage = async newMessage => {
-    const messageInfo = { newMessage };
-  
-    const options = { 
-      method: 'POST',
-      body: JSON.stringify(messageInfo),
-      headers: {'Content-Type': 'application/json'}
-    };
-  
-    const response = await fetch('https://drwatson-api.herokuapp.com/api/message', options);
-  
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error('Dr Watson is currently down.  Please try again later.');
-    };
-  
-    const reply = await response.json();
-  
-    return reply;
+  const messageInfo = { newMessage };
+
+  const options = { 
+    method: 'POST',
+    body: JSON.stringify(messageInfo),
+    headers: {'Content-Type': 'application/json'}
+  };
+
+  const response = await fetch('https://drwatson-api.herokuapp.com/api/message', options);
+
+  if (!response.ok) {
+    throw new Error('Dr Watson is currently down.  Please try again later.');
+  };
+
+  const reply = await response.json();
+
+  return reply;
 }
 
 export const endConversation = async () => {

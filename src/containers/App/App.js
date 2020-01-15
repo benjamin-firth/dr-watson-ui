@@ -9,10 +9,6 @@ import { endConversation } from '../../apiCalls';
 import './App.css';
 
 export class App extends Component {
-  constructor() {
-    super();
-  }
-
   addMessage = (message, isUser) => {
     this.props.submitMessage(message, isUser);
   }
