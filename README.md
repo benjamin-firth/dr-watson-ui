@@ -13,7 +13,7 @@ We currently have an Chat application using the [Watson Assistant API](https://c
 You will have 3 hours to work on this.
 
 #### Dr Watson Login Screenshot (with error)
-![dr-watson-login-screenshot](./assets/dr-watson-login-screenshot.png)
+<img width="1440" alt="Screen Shot 2020-01-15 at 11 50 42 AM" src="https://user-images.githubusercontent.com/32349614/72462045-673a1e80-378d-11ea-9ce9-8ec3441fe7ed.png">
 
 #### Dr Watson Chat Screenshot
 ![dr-watson-chat-screenshot](./assets/dr-watson-chat-screenshot.png)
