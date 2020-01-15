@@ -14,12 +14,29 @@ export const startConversation = async feeling => {
   }
 
   const data = await response.json();
-  console.log(data)
   return data;
 }
 
 export const postMessage = async newMessage => {
-
+    const messageInfo = { newMessage };
+  
+    const options = { 
+      method: 'POST',
+      body: JSON.stringify(messageInfo),
+      headers: {'Content-Type': 'application/json'}
+    };
+  
+    const response = await fetch('https://drwatson-api.herokuapp.com/api/message', options);
+  
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message);
+    };
+  
+    const reply = await response.json();
+    console.log('reply', reply);
+  
+    return reply;
 }
 
 export const endConversation = async () => {
