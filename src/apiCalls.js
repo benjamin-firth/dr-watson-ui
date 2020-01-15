@@ -30,11 +30,10 @@ export const postMessage = async newMessage => {
   
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.message);
+      throw new Error('Dr Watson is currently down.  Please try again later.');
     };
   
     const reply = await response.json();
-    console.log('reply', reply);
   
     return reply;
 }
