@@ -44,7 +44,7 @@ export class App extends Component {
 }
 
 export const mapStateToProps = ({ user }) => ({
-  user,
+  user
 });
 
 export const mapDispatchToProps = dispatch =>  bindActionCreators({ removeUser, hasErrored, submitMessage, deleteMessages }, dispatch);
