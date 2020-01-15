@@ -12,9 +12,10 @@ export const hasErrored = errorMsg => ({
   errorMsg
 })
 
-export const submitMessage = message => ({
+export const submitMessage = (message, isUser) => ({
   type: 'SUBMIT_MESSAGE',
-  message
+  message,
+  isUser
 })
 
 export const deleteMessages = () => ({
