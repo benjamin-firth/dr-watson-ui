@@ -70,7 +70,8 @@ export class ChatBox extends Component {
   }
 }
 
-export const mapStateToProps = ({ errorMsg }) => ({
+export const mapStateToProps = ({ messages, errorMsg }) => ({
+  messages,
   errorMsg
 })
 
