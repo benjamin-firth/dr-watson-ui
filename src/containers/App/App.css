@@ -3,7 +3,8 @@
 }
 
 .App {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background: url('https://ca.slack-edge.com/T029P2S9M-U0S2QJD42-62348d5b08d9-512');
   min-height: 100vh;
   display: flex;
   flex-direction: column;

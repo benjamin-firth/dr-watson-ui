@@ -22,7 +22,9 @@ export class WelcomeModal extends Component {
 
   handleSubmit = e => {
     const { firstName, lastName, feeling } = this.state;
-    e.preventDefault();
+    if (firstName === '' || lastName === '' || feeling === '') {
+      return this.setState({error: "Please make sure you've filled everything out!"});
+    }
     this.props.createUser({
       id: Date.now(),
       firstName,
@@ -68,7 +70,7 @@ export class WelcomeModal extends Component {
           <option value="stressed">Stressed</option>
           <option value="frustrated">Frustrated</option>
         </select>
-        <button onClick={this.handleSubmit}>
+        <button type='button' onClick={this.handleSubmit}>
           Take 5 minutes to check in!
         </button>
       </form>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { removeUser, hasErrored } from '../../actions';
+import { removeUser, hasErrored, submitMessage, deleteMessages } from '../../actions';
 import { endConversation } from '../../apiCalls';
 
 jest.mock('../../apiCalls');
@@ -9,6 +9,8 @@ jest.mock('../../apiCalls');
 describe('App component', () => {
   const mockRemoveUser = jest.fn();
   const mockHasErrored = jest.fn();
+  const mocksubmitMessage = jest.fn();
+  const mockDeleteMessages = jest.fn();
   let wrapper;
 
   beforeEach(() => {
@@ -23,6 +25,8 @@ describe('App component', () => {
         user={mockUser}
         removeUser={mockRemoveUser}
         hasErrored={mockHasErrored}
+        submitMessage={mocksubmitMessage}
+        deletemessages={mockDeleteMessages}
     />);
   });
 
@@ -35,6 +39,8 @@ describe('App component', () => {
       user={null}
       removeUser={mockRemoveUser}
       hasErrored={mockHasErrored}
+      submitMessage={mocksubmitMessage}
+      deletemessages={mockDeleteMessages}
     />);
 
     expect(wrapper).toMatchSnapshot();
@@ -103,6 +109,26 @@ describe('mapDispatchToProps', () => {
 
     const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.hasErrored('fetch failed');
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('calls dispatch with a submitMessage action when submitMessage is called', () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = submitMessage();
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.submitMessage();
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('calls dispatch with a deleteMessages action when deleteMessages is called', () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = deleteMessages();
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.deleteMessages();
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
